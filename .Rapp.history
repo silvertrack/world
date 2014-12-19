@@ -1,0 +1,117 @@
+print("hello")
+setwd("/Users/pavel/Desktop/server/world")
+setwd("/Users/pavel/Desktop/server/world")
+internet <- read.table("i2.tsv", sep = "\t", header = FALSE)
+internet <- read.table("i2.tsv", sep = "\t", header = FALSE)
+internet <- read.table(file = "i2.tsv", sep = "\t", header = FALSE)
+internet <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE)
+internet
+class(internet[3])
+internet[3]
+mode(internet[3])
+internet[3
+] <- as.integer(internet[3])
+internet[3][1]
+internet[1][3]
+internet[1,]
+internet[1,3]
+internet[1,3]
+locale.setlocale(locale.LC_NUMERIC, '')
+internet <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, thousands = ",")
+internet <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, thousands = ','')
+internet <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, thousands = ',')
+?read.table
+internet <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, dec = ',')
+internet
+internet[3]
+class(internet[3])
+rm(internet)
+i2 <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, dec = ',')
+head(i2)
+i2["V1"] <- NULL
+head(i2)
+nrow(i2)
+i2 <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, dec = ",")
+head(i2)
+i2["V3"] <- as.numeric(gsub(",","", i2["V3"]))
+i2[2] <- as.numeric(gsub(",","", i2[2]))
+i2[2] <- as.numeric(i2[2]))
+head(i2)
+rm(i2)
+i2 <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, dec = ",")
+i2["V3"] <- as.numeric(gsub(",","", i2["V3"]))
+i2
+i2
+i2 <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, dec = ",")
+head(i2)
+class(i2[2])
+class(i2[1])
+mode(i2[1])
+i2 <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, colClasses=c('integer','factor', 'num.with.commas')
+)
+i2 <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE, colClasses=c('integer','factor', 'num.with.commas'), dec = ",")
+i2[,V3] <- lapply(i2[,V3],function(x){as.numeric(gsub(",", "", i2))})
+i2[3] <- lapply(i2[3],function(x){as.numeric(gsub(",", "", i2))})
+i2[,3] <- lapply(i2[,3],function(x){as.numeric(gsub(",", "", i2))})
+i2[,3] <- lapply(i2[,3],function(x){as.numeric(gsub(",", "", i2[,3]))})
+ls
+head(i2)
+i2 <- read.table("i2.tsv", sep = "\t", quote = "", header = FALSE)
+head(i2)
+i2[,3] <- as.character(i2[,3])
+class(i2[3])
+mode(i2[3])
+head(i2)
+v3 <- i2$V3
+v3
+as.numeric(gsub(",","", v3))
+i2$V3 <- as.numeric(gsub(",","", i2$V3))
+head(i2)
+p2 <- read.table("p2.tsv", sep = "\t", quote = "", header = FALSE)
+p2 <- read.table("p2.tsv", sep = "\t", quote = "", header = FALSE)
+p2$V3 <- as.numeric(gsub(",","", p2$V3))
+p2$V1 <- NULL
+head(p2)
+head(i2)
+pi <- merge(i2, p2, by = "V2")
+head(pi)
+i2$V1 <- NULL
+pi$V1 <- NULL
+i2[i2$V2 == "Albania",]
+p2[p2$V2 == "Albania",]
+nrow(p2)
+nrow(i2)
+pi
+head(pi)
+pi$P <- pi$V3.x / pi$V3.y
+head(pi)
+pi <- merge(i2, p2, by = "V2", all = TRUE)
+nrow(pi)
+pi
+pi$P <- pi$V3.x / pi$V3.y
+pi
+pi <- merge(i2, p2, by = "V2", all = TRUE)
+head(pi)
+pi$P <- pi$V3.x / pi$V3.y
+head(pi)
+pi$V3.x <- pi$V3.y <- NULL
+pi
+isNA(2)
+is,NA(2)
+is.NA(2)
+is.na(2)
+pi$P[is.na,
+]
+pi$P[is.na == TRUE,]
+pi$P[is.na(pi$P) == TRUE,]
+pi[is.na(pi$P) == TRUE,]
+write.table(pi, file='p.tsv', quote=FALSE, sep='\t', col.names = NA)
+getwd()
+write.table(pi, file='p.tsv', col.names=FALSE, quote=FALSE, sep='\t', col.names = NA)
+write.table(pi, file='p.tsv', quote=FALSE, sep='\t', col.names = FALSE)
+write.table(pi, file='data4.tsv', quote=FALSE, sep='\t', col.names = FALSE)
+ls()
+rm(i2)
+rm(p2)
+rm(pi)
+rm(v3)

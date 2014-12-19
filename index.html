@@ -4,7 +4,40 @@
     <title>Internet Users</title>
     <script type="text/javascript" src="./lib/nns/nns.js"></script>
     <script type="text/javascript" src="./lib/polymaps.js"></script>
-    <script type="text/javascript" src="tsv.js"></script>
+    <script type="text/javascript" src="./tsv.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        function percent(v) {
+            return (v * 100).toPrecision(Math.min(2, 2 - Math.log(v) / Math.LN2)) + "%";
+        }
+
+        var socket = io();
+        socket.on('update', function(msg) {
+            j = JSON.parse(msg);
+            keys = Object.keys(j); 
+            for(i = 0; i < keys.length; i++) 
+            {
+                n = keys[i];
+                v = j[n];
+                if(v === "NA")
+                    v = 0;
+                //console.log(n + ": " + percent(v));
+
+                var x = document.getElementById(n);
+                //console.log(x);
+                if(x)
+                {
+                    x.removeAttribute('class');
+                    x.setAttribute('class', isNaN(v) ? null : "q" + ~~(v * 9) + "-" + 9);
+                    var c = x.firstChild.textContent = (n + (isNaN(v) ? "" : ":  " + percent(v)));
+                    //console.log(c);
+                }
+                //else
+                //    console.log(n);
+            }
+        });
+    </script>
     <!-- test hello -->
     <style type="text/css">
 

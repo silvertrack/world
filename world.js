@@ -1,13 +1,6 @@
 var po = org.polymaps;
 
-/* Country name -> population (July 2010 Est.). */
-var population = tsv("population.tsv")
-    .key(function(l) { return l[1]; })
-    .value(function(l) { return l[2].replace(/,/g, ""); })
-    .map();
-
-/* Country name -> internet users (2008). */
-var internet = tsv("internet.tsv")
+var data4 = tsv("data4.tsv")
     .key(function(l) { return l[1]; })
     .value(function(l) { return l[2].replace(/,/g, ""); })
     .map();
@@ -28,22 +21,24 @@ map.add(po.geoJson()
     .zoom(3)
     .on("load", load));
 
-map.add(po.compass()
-    .pan("none"));
+map.add(po.compass().pan("none"));
 
 map.container().setAttribute("class", "YlOrRd");
 
 /** Set feature class and add tooltip on tile load. */
 function load(e) {
-  for (var i = 0; i < e.features.length; i++) {
-    var feature = e.features[i],
+    for (var i = 0; i < e.features.length; i++) {
+        var feature = e.features[i],
         n = feature.data.properties.name,
-        v = internet[n] / population[n];
-    n$(feature.element)
-        .attr("class", isNaN(v) ? null : "q" + ~~(v * 9) + "-" + 9)
-      .add("svg:title")
-        .text(n + (isNaN(v) ? "" : ":  " + percent(v)));
-  }
+        v = data4[n];
+        if(v === "NA")
+            v = null;
+        n$(feature.element)
+            .attr("id", n)
+            .attr("class", isNaN(v) ? null : "q" + ~~(v * 9) + "-" + 9)
+            .add("svg:title")
+            .text(n + (isNaN(v) ? "" : ":  " + percent(v)));
+    }
 }
 
 /** Formats a given number as a percentage, e.g., 10% or 0.02%. */
