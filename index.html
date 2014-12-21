@@ -4,7 +4,6 @@
     <title>Internet Users</title>
     <script type="text/javascript" src="./lib/nns/nns.js"></script>
     <script type="text/javascript" src="./lib/polymaps.js"></script>
-    <script type="text/javascript" src="./tsv.js"></script>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -15,26 +14,26 @@
         var socket = io();
         socket.on('update', function(msg) {
             j = JSON.parse(msg);
-            keys = Object.keys(j); 
+            //console.log("date: " + j.date);
+            document.getElementById("copy").textContent = j.date;
+
+            d4 = j.data4
+            keys = Object.keys(d4); 
             for(i = 0; i < keys.length; i++) 
             {
                 n = keys[i];
-                v = j[n];
+                v = d4[n];
                 if(v === "NA")
                     v = 0;
-                //console.log(n + ": " + percent(v));
 
                 var x = document.getElementById(n);
-                //console.log(x);
                 if(x)
                 {
                     x.removeAttribute('class');
                     x.setAttribute('class', isNaN(v) ? null : "q" + ~~(v * 9) + "-" + 9);
                     var c = x.firstChild.textContent = (n + (isNaN(v) ? "" : ":  " + percent(v)));
-                    //console.log(c);
+                    //console.log(n + ": " + c);
                 }
-                //else
-                //    console.log(n);
             }
         });
     </script>
@@ -66,12 +65,6 @@
   </head>
   <body id="map">
     <script type="text/javascript" src="world.js"></script>
-    <span id="copy">
-      Courtesy <a href="http://earthobservatory.nasa.gov/">NASA Earth
-      Observatory</a>. &copy;
-      2009 <a href="http://thematicmapping.org/downloads/world_borders.php"
-      >thematicmapping.org</a>. Colors by <a href="http://colorbrewer.org/"
-      >Cynthia Brewer</a>.
-    </span>
+    <span id="copy">---</span>
   </body>
 </html>
