@@ -1,5 +1,5 @@
 #World#
-Test & research project
+Test and research project.
 
 Installation
 ------------
